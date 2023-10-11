@@ -15,6 +15,8 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+    if ball.ycor() > 290:
+      ball.bounce_wall()
 
 
 
