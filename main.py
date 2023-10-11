@@ -9,7 +9,7 @@ def check_paddle_ball():
       return True
    else:
       return False
-   
+score = ScoreBoard(0,0) 
 score_left = ScoreBoard(-125, 250)
 score_left.print_score()
 score_right = ScoreBoard(125, 250)
@@ -44,7 +44,10 @@ while game_is_on:
        score_right.increase_score()
     if ball.distance(paddle_left) < 40 and ball.xcor() < -320 and paddle_left.xcor() < ball.xcor():
        ball.bounce_from_paddle()
-       score_left.increase_score()      
+       score_left.increase_score()  
+    if ball.xcor() > 450 or ball.xcor() <-450:
+       score.game_over()
+       break
        
 
 
