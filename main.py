@@ -4,6 +4,18 @@ import time
 from paddle import Paddle
 from score import ScoreBoard
 
+bob = Turtle()
+bob.penup()
+bob.penup()
+bob.goto(0,300)
+bob.setheading(270)
+bob.pencolor("white")
+for x in range(20):
+   bob.pendown()
+   bob.forward(20)
+   bob.penup()
+   bob.forward(20)
+
 def check_paddle_ball():
    if ball.xcor() > 330 and ball.ycor() < paddle_right.ytop and ball.ycor()>paddle_right.ybot:
       return True
@@ -14,6 +26,7 @@ score_left = ScoreBoard(-125, 250)
 score_left.print_score()
 score_right = ScoreBoard(125, 250)
 score_right.print_score()
+
 
 ball = Ball()
 paddle_left = Paddle(-350,0)
