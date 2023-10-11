@@ -1,4 +1,5 @@
 from turtle import Turtle
+from paddle import Paddle
 
 class Ball(Turtle):
        def __init__(self):
@@ -19,6 +20,9 @@ class Ball(Turtle):
 
        def bounce_wall(self):
           self.yplus *= -1
+
+       def bounce_from_paddle(self):
+          self.xplus *= -1
           
 
           
