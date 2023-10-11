@@ -12,7 +12,7 @@ screen.setup(width=800 , height=600)
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.4)
+    time.sleep(0.1)
     screen.update()
     ball.move()
 
