@@ -2,12 +2,18 @@ from turtle import Screen,Turtle
 from ball import Ball
 import time
 from paddle import Paddle
+from score import ScoreBoard
 
 def check_paddle_ball():
    if ball.xcor() > 330 and ball.ycor() < paddle_right.ytop and ball.ycor()>paddle_right.ybot:
       return True
    else:
       return False
+   
+score_left = ScoreBoard(-125, 250)
+score_left.print_score()
+score_right = ScoreBoard(125, 250)
+score_right.print_score()
 
 ball = Ball()
 paddle_left = Paddle(-350,0)
@@ -33,8 +39,13 @@ while game_is_on:
     ball.move()
     if ball.ycor() > 290 or ball.ycor() < -290:
       ball.bounce_wall()
-    if ball.distance(paddle_right) < 40 and ball.xcor()>320 or ball.distance(paddle_left) < 40 and ball.xcor() < -320:
+    if ball.distance(paddle_right) < 40 and ball.xcor()>320 and paddle_right.xcor() > ball.xcor():
        ball.bounce_from_paddle()
+       score_right.increase_score()
+    if ball.distance(paddle_left) < 40 and ball.xcor() < -320 and paddle_left.xcor() < ball.xcor():
+       ball.bounce_from_paddle()
+       score_left.increase_score()      
+       
 
 
 
