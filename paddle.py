@@ -9,8 +9,7 @@ class Paddle(Turtle):
         self.color("white")
         self.penup()
         self.goto(x,y)
-        self.ytop = y + 50 
-        self.ybot = y - 50
+
 
 
     def move_up(self):
@@ -19,7 +18,12 @@ class Paddle(Turtle):
     def move_down(self):
         self.goto(self.x, self.ycor()-20)
 
+    def ytop(self):
+       return  self.ycor() + 60 
     
+    def ybot(self):
+        return self.ycor() - 60
+
 
     
 
