@@ -1,5 +1,5 @@
 from turtle import Turtle
-from paddle import Paddle
+
 
 class Ball(Turtle):
        def __init__(self):
@@ -10,6 +10,7 @@ class Ball(Turtle):
         self.penup()
         self.xplus = 10
         self.yplus = 10
+        self.sp = 0.2
 
 
 
@@ -23,6 +24,14 @@ class Ball(Turtle):
 
        def bounce_from_paddle(self):
           self.xplus *= -1
+
+       def increase_speed(self):
+          if self.sp > 0.03:
+            self.sp -= 0.02
+          else:
+             self.sp +=0
+          return self.sp
+          
           
 
           

@@ -56,16 +56,18 @@ screen.onkey(paddle_right.move_down,"Down")
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.sp)
     screen.update()
     ball.move()
     if ball.ycor() > 280 or ball.ycor() < -280:
       ball.bounce_wall()
     if check_ball_paddle_right() and ball.xcor()>=330 and paddle_right.xcor() > ball.xcor():
        ball.bounce_from_paddle()
+       ball.increase_speed()
        score_right.increase_score()
     if check_ball_paddle_left() and ball.xcor() <=-330 and paddle_left.xcor() < ball.xcor():
        ball.bounce_from_paddle()
+       ball.increase_speed()
        score_left.increase_score()  
     if ball.xcor() > 450 or ball.xcor() <-450:
        score.game_over()
