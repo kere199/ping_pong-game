@@ -4,6 +4,10 @@ import time
 from paddle import Paddle
 from score import ScoreBoard
 
+screen = Screen()
+screen.tracer(0)
+screen.setup(width=800 , height=600)
+
 def check_ball_paddle_right():
    if ball.ycor() > paddle_right.ybot() and ball.ycor() < paddle_right.ytop():
       return True
@@ -39,10 +43,7 @@ score_right.print_score()
 ball = Ball()
 paddle_left = Paddle(-350,0)
 paddle_right = Paddle(350 , 0)
-screen = Screen()
-screen.tracer(0)
 screen.bgcolor("black")
-screen.setup(width=800 , height=600)
 screen.listen()
 screen.onkey(paddle_left.move_up,"w")
 screen.onkey(paddle_left.move_down,"s")
